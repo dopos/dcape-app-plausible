@@ -1,18 +1,18 @@
-# dcape-app-umami
+# dcape-app-plausible
 
 [![GitHub Release][1]][2] [![GitHub code size in bytes][3]]() [![GitHub license][4]][5]
 
-[1]: https://img.shields.io/github/release/dopos/dcape-app-umami.svg
-[2]: https://github.com/dopos/dcape-app-umami/releases
-[3]: https://img.shields.io/github/languages/code-size/dopos/dcape-app-umami.svg
-[4]: https://img.shields.io/github/license/dopos/dcape-app-umami.svg
+[1]: https://img.shields.io/github/release/dopos/dcape-app-plausible.svg
+[2]: https://github.com/dopos/dcape-app-plausible/releases
+[3]: https://img.shields.io/github/languages/code-size/dopos/dcape-app-plausible.svg
+[4]: https://img.shields.io/github/license/dopos/dcape-app-plausible.svg
 [5]: LICENSE
 
-[umami](https://umami.is/) application package for [dcape](https://github.com/dopos/dcape).
+[plausible](https://plausible.io/) application package for [dcape](https://github.com/dopos/dcape).
 
 ## Docker image used
 
-* [ghcr.io/umami-software/umami:postgresql](https://github.com/umami-software/umami/pkgs/container/umami)
+* [plausible/analytics](https://hub.docker.com/r/plausible/analytics)
 
 ## Requirements
 
