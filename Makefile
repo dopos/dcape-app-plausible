@@ -27,8 +27,6 @@ DISABLE_REGISTRATION ?= false
 
 DCAPE_ROOT      ?= /opt/dcape/var
 
-#CONTAINER_ID ?= $(APP_TAG)_app_1
-
 # ------------------------------------------------------------------------------
 # .env template (custom part)
 # inserted in .env.sample via 'make config'
@@ -67,10 +65,7 @@ endif
 ## Custom app targets
 #:
 
-# plausible_events_db
-
-#CONT = plau-dev-lan_events_db_1
-
-events-db-create: CMD=run events_db clickhouse-client --host events_db --port 8123 --query "CREATE DATABASE IF NOT EXISTS plausible_events_db"
+## create clickhouse db
+events-db-create: CMD=exec events_db clickhouse-client --query "CREATE DATABASE IF NOT EXISTS plausible_events_db"
 events-db-create: dc
 
