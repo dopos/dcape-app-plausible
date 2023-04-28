@@ -1,0 +1,33 @@
+# custom app config
+# overrides DCAPE/apps/drone/dcape-app/docker-compose.yml
+
+version: '2'
+
+services:
+  app:
+    command: sh -c "sleep 10 && /entrypoint.sh db migrate && /entrypoint.sh run"
+    depends_on:
+      - events_db
+    environment:
+      - DATABASE_URL=postgres://${PGUSER}:${PGPASSWORD}@db/${PGDATABASE}?sslmode=disable
+      - SECRET_KEY_BASE
+      - BASE_URL
+      - DISABLE_REGISTRATION
+      - RELEASE_DISTRIBUTION=none
+      - CLICKHOUSE_DATABASE_URL=http://events_db:8123/plausible_events_db
+
+
+  events_db:
+    image: clickhouse/clickhouse-server:22.6-alpine
+    restart: always
+    volumes:
+      - ${DCAPE_ROOT}/clickhouse:/var/lib/clickhouse
+      - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro
+      - ./clickhouse/clickhouse-user-config.xml:/etc/clickhouse-server/users.d/logging.xml:ro
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - lan
+
