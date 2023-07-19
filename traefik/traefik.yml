@@ -1,0 +1,5 @@
+experimental:
+  plugins:
+    plausiblefeeder:
+      moduleName: "github.com/safing/plausiblefeeder"
+      version: "v1.0.0"

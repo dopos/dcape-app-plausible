@@ -1,0 +1,16 @@
+http:
+    middlewares:
+        my-plausiblefeeder:
+            plugin:
+                plausiblefeeder:
+                    debugLogging: "false"
+                    domains:
+                        - localhost
+                    eventEndpoint: http://plausible:8000/api/event
+                    queueSize: "1000"
+                    reportAllResources: "false"
+                    reportAnyHost: "false"
+                    reportErrors: "false"
+                    reportExtensions:
+                        - .html
+                        - ""
